@@ -1,0 +1,34 @@
+body{
+    background-color:black!important;
+}
+
+*{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:white;
+}
+h1{
+    font-size:6vmin;
+}
+h2{
+    font-size:4vmin;
+}
+h3{
+    font-size:2vmin;
+}
+
+.top{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:10vh;
+    border-bottom:gray 1vmin solid;
+    display: flex;
+    justify-content: center;
+}
+.logo{
+    height:100%;
+}
+#title{
+    font-size:4vmin;
+}

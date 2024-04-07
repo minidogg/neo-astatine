@@ -1,0 +1,25 @@
+*{
+    text-align: center!important;
+}
+img{
+    animation: 5s turn infinite!important;
+    width:50vmin!important;
+    display:block!important;
+    margin:auto!important;
+    margin-top: 5vh!important;
+}
+@keyframes turn{
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+}
+h1{
+    margin-top:8.5vh;
+}
+
+#tip{
+    font-size:5vmin;
+}

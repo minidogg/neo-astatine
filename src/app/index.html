@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>NeoAstatine - Loading</title>
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="load.css">
+</head>
+<body>
+    <img src="assets/neoAstatine.png">
+    <div class="above">
+        <h1>Loading...</h1>
+        <h3 id="tip">Fun Fact: Drugs taste good :3</h3>
+    </div>
+
+    <script>
+        var tips = ["Fun Fact: I farted on my sister's pellow :P","AbstractMelon's real name is Kyle :3","Doxxing is good for the environment!","Buy the funny substances from the guy in the alley."]
+        var tip = document.getElementById("tip");
+        const randInt = (min,max)=>{return Math.floor(Math.random() * (max+1 - min) ) + min}
+
+        setInterval(()=>{
+            tip.textContent = tips[randInt(0,tips.length-1)]
+        },3000)
+    </script>
+</body>
+</html>

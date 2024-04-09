@@ -2,8 +2,9 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 const path = require('node:path')
 const fs = require("fs")
 var cmd=require('node-cmd');
-var cmd=require('node-fetch');
+var fetch=require('node-fetch');
 
+var splashClosed = false
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -11,10 +12,15 @@ function createWindow () {
     height: 600,
     minWidth:800,
     minHeight:600,
+    maxWidth:1000,
+    maxHeight:600,
+    frame:false,
     show:false,
+    transparent:true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     },
+    fullscreenable:false,
     autoHideMenuBar: true,
     icon:"app/assets/neoAstatine.png",
     // resizable: false
@@ -27,6 +33,7 @@ function createWindow () {
     height: 700, 
     transparent: true, 
     frame: false, 
+    fullscreenable:false,
     alwaysOnTop: true 
   });
   splash.loadFile('./app/index.html');
@@ -50,11 +57,11 @@ app.whenReady().then(() => {
   ipcMain.handle('fs', async (event, method, params) => {       
     return fs[method](params)
   });
-  ipcMain.handle('rename', async (event, a,b) => {       
-    return fs.rename(a,b,()=>{})
-  });
   ipcMain.handle('path', async (event, method, params) => {       
     return path[method](params)
+  });
+  ipcMain.handle('rename', async (event, a,b) => {       
+    return fs.rename(a,b,()=>{})
   });
   ipcMain.handle('cmd', async (event, command) => {       
     return cmd.runSync(command)
@@ -68,8 +75,12 @@ app.whenReady().then(() => {
   })
   ipcMain.handle('doneLoad', async ()=>{
     setTimeout(()=>{
-      splash.close();
-      win.show();
+      if(splashClosed == false){
+        splash.close();
+        win.show();
+      }
+      splashClosed=true
+
       return true
     },2000)
 

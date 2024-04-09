@@ -1,5 +1,6 @@
 body{
     background-color:black!important;
+    border-radius:10vmin;
 }
 
 *{
@@ -17,6 +18,9 @@ h3{
 }
 
 .top{
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(0.5vmin);
+
     position:fixed;
     top:0;
     left:0;
@@ -25,10 +29,58 @@ h3{
     border-bottom:gray 1vmin solid;
     display: flex;
     justify-content: center;
+
+    
+
+    /* -webkit-user-select: none;
+    user-select: none; */
+    -webkit-app-region: drag;
+}
+.top:hover{
+    cursor:grab;
 }
 .logo{
     height:100%;
 }
 #title{
     font-size:4vmin;
+}
+.container{
+    background-color: rgba(59, 59, 59, 0.5);
+
+    width:90vw;
+    height:70vh;
+
+    display:flex;
+    margin:auto;
+    margin-top: 13vh;
+
+    padding:2vmin;
+    border-radius: 3vmin;
+}
+input[type=text]{
+    all:unset;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding:1vmin;
+    border-radius: 1vmin;
+    font-size:3vmin;
+
+}
+
+button{
+    all:unset;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding:1vmin;
+    border-radius: 1vmin;
+    color:white;
+    font-size:3vmin;
+    user-select: none;
+    transition:all 0.2s ease-in-out;
+}
+button:hover{
+    cursor:pointer;
+    background-color: rgba(105, 105, 105, 0.5);
+}
+button:active{
+    background-color: rgba(54, 54, 54, 0.5);
 }
